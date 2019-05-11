@@ -6,7 +6,7 @@
         android:id="@+id/rootView"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
-        tools:context=".searchalbum.ui.activity.SearchActivity">
+        tools:context=".album.activity.SearchActivity">
 
     <androidx.recyclerview.widget.RecyclerView android:layout_width="match_parent"
                                                android:id="@+id/recyclerView"

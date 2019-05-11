@@ -1,18 +1,22 @@
-package com.tmagalhaes.albumsearch.searchalbum.ui.repository
+package com.tmagalhaes.albumsearch.album.datasource
 
-import com.tmagalhaes.albumsearch.searchalbum.model.Album
+import com.tmagalhaes.albumsearch.album.model.Album
+import com.tmagalhaes.albumsearch.album.api.AlbumApi
 import com.tmagalhaes.albumsearch.common.model.Outcome
+
 import com.tmagalhaes.albumsearch.common.model.SearchResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlbumRepository(private val api: AlbumApi) {
+class AlbumRemoteDataSource : AlbumDataSource {
+
+    private lateinit var api: AlbumApi //TODO: Inject
 
     // We add this reference in order to cancel ongoing requests in case another one is sent before it finishes
     private var currentSearchAlbumsCall: Call<SearchResult<Album>>? = null
 
-    fun getAlbums(query: String, callback: (Outcome<SearchResult<Album>>) -> Unit) {
+    override fun getAlbums(query: String, callback: (Outcome<SearchResult<Album>>) -> Unit) {
         currentSearchAlbumsCall?.cancel()
         currentSearchAlbumsCall = api.searchAlbums(query)
         currentSearchAlbumsCall?.enqueue(object : Callback<SearchResult<Album>> {
@@ -27,13 +31,12 @@ class AlbumRepository(private val api: AlbumApi) {
             }
 
             override fun onResponse(call: Call<SearchResult<Album>>, response: Response<SearchResult<Album>>) {
+                currentSearchAlbumsCall = null
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        currentSearchAlbumsCall = null
                         callback(Outcome.Success(value = it))
                     } ?: callback(Outcome.Error(message = "Response body is empty", cause = null))
                 } else {
-                    currentSearchAlbumsCall = null
                     callback(Outcome.Error(message = response.message(), cause = null))
                 }
             }

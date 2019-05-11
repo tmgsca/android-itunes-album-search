@@ -1,15 +1,14 @@
-package com.tmagalhaes.albumfinder.ui.viewmodel
-
+package com.tmagalhaes.albumsearch.album.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.tmagalhaes.albumsearch.searchalbum.model.Album
+import com.tmagalhaes.albumsearch.album.model.Album
 import com.tmagalhaes.albumsearch.common.model.Outcome
-import com.tmagalhaes.albumsearch.searchalbum.ui.repository.AlbumRepository
+import com.tmagalhaes.albumsearch.album.repository.AlbumRepository
 
 class SearchViewModel {
 
-    private lateinit var repository: AlbumRepository
+    private lateinit var repository: AlbumRepository //TODO: Inject
 
     // Properties
 
@@ -58,7 +57,4 @@ class SearchViewModel {
     fun getAlbums() = albums as LiveData<List<Album>>
     fun isLoading() = loading as LiveData<Boolean>
     fun getRequestErrorMessage() = requestErrorMessage as LiveData<String?>
-
-    var someLoad: MutableLiveData<Boolean> = MutableLiveData()
-
 }

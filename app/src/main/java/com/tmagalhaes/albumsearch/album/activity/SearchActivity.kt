@@ -1,12 +1,12 @@
-package com.tmagalhaes.albumsearch.searchalbum.ui.activity
+package com.tmagalhaes.albumsearch.album.activity
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.tmagalhaes.albumfinder.ui.viewmodel.SearchViewModel
+import com.tmagalhaes.albumsearch.album.viewmodel.SearchViewModel
 import com.tmagalhaes.albumsearch.R
-import com.tmagalhaes.albumsearch.searchalbum.model.Album
+import com.tmagalhaes.albumsearch.album.model.Album
 import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.design.snackbar
 
