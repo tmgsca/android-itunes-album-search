@@ -3,7 +3,7 @@ package com.tmagalhaes.albumsearch.common.di
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.tmagalhaes.albumsearch.album.api.AlbumApi
-import com.tmagalhaes.albumsearch.album.datasource.AlbumRemoteDataSource
+import com.tmagalhaes.albumsearch.album.datasource.iTunesAlbumRemoteDataSource
 import com.tmagalhaes.albumsearch.album.datasource.FakeAlbumLocalDataSource
 import com.tmagalhaes.albumsearch.album.repository.AlbumRepository
 import com.tmagalhaes.albumsearch.album.viewmodel.AlbumSearchViewModel
@@ -27,8 +27,8 @@ val networkModule = module {
 
 val albumSearchModule = module {
     single { (get() as Retrofit).create(AlbumApi::class.java) }
-    single { AlbumRemoteDataSource(get()) }
+    single { iTunesAlbumRemoteDataSource(get()) }
     single { FakeAlbumLocalDataSource() }
-    single { AlbumRepository(get() as AlbumRemoteDataSource, get() as FakeAlbumLocalDataSource) }
+    single { AlbumRepository(get() as iTunesAlbumRemoteDataSource, get() as FakeAlbumLocalDataSource) }
     viewModel { AlbumSearchViewModel(get()) }
 }

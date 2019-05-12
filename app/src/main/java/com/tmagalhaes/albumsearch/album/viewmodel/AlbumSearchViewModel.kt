@@ -35,6 +35,13 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
         }
     }
 
+    private val selectedAlbum: MutableLiveData<Album?> by lazy {
+        MutableLiveData<Album?>().also {
+            it.value = null
+        }
+    }
+
+
     // Interactions
 
     fun queryAlbums(query: String) {
@@ -57,6 +64,14 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
         }
     }
 
+    fun didSelectAlbum(album: Album) {
+        selectedAlbum.value = album
+    }
+
+    fun didUnselectAlbum() {
+        selectedAlbum.value = null
+    }
+
     fun didShowError() {
         requestErrorMessage.value = null
     }
@@ -70,4 +85,5 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
     fun isEmpty() = empty as LiveData<Boolean>
     fun isLoading() = loading as LiveData<Boolean>
     fun getRequestErrorMessage() = requestErrorMessage as LiveData<String?>
+    fun selectedAlbum() = selectedAlbum as LiveData<Album?>
 }
