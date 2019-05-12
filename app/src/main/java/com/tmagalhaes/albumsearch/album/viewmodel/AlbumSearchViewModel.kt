@@ -7,7 +7,7 @@ import com.tmagalhaes.albumsearch.album.model.Album
 import com.tmagalhaes.albumsearch.common.model.Outcome
 import com.tmagalhaes.albumsearch.album.repository.AlbumRepository
 
-class SearchViewModel(private val repository: AlbumRepository) : ViewModel() {
+class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel() {
 
     // Properties
 

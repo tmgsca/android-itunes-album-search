@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:padding="8dp"
+              android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent" android:orientation="horizontal"
+                  android:layout_marginBottom="4dp"
+                  android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     android:text="Genre:"
+                                                     android:layout_marginEnd="4dp"
+                                                     android:textStyle="bold"
+                                                     android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     tools:text="Genre"
+                                                     android:id="@+id/albumPrimaryGenreName"
+                                                     android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:orientation="horizontal"
+                  android:layout_marginBottom="4dp"
+                  android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     android:text="Price:"
+                                                     android:textStyle="bold"
+                                                     android:layout_marginEnd="4dp"
+                                                     android:layout_height="wrap_content"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     tools:text="Price"
+                                                     android:id="@+id/albumCollectionPrice"
+                                                     android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:orientation="horizontal"
+                  android:layout_marginBottom="4dp"
+                  android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     android:text="Currency:"
+                                                     android:textStyle="bold"
+                                                     android:layout_marginEnd="4dp"
+                                                     android:layout_height="wrap_content"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     tools:text="Currency"
+                                                     android:id="@+id/albumCurrency"
+                                                     android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:orientation="horizontal"
+                  android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     tools:text="Copyright"
+                                                     android:id="@+id/albumCopyright"
+                                                     android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>
