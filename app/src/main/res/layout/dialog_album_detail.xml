@@ -10,7 +10,7 @@
                   android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
-                                                     android:text="Genre:"
+                                                     android:text="@string/genre"
                                                      android:layout_marginEnd="4dp"
                                                      android:textStyle="bold"
                                                      android:layout_height="wrap_content"/>
@@ -27,7 +27,7 @@
                   android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
-                                                     android:text="Price:"
+                                                     android:text="@string/price"
                                                      android:textStyle="bold"
                                                      android:layout_marginEnd="4dp"
                                                      android:layout_height="wrap_content"/>
@@ -44,7 +44,7 @@
                   android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
-                                                     android:text="Currency:"
+                                                     android:text="@string/currency"
                                                      android:textStyle="bold"
                                                      android:layout_marginEnd="4dp"
                                                      android:layout_height="wrap_content"/>

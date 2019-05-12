@@ -17,7 +17,17 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
         }
     }
 
-    private val loading: MutableLiveData<Boolean> = MutableLiveData()
+    private val empty: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>().also {
+            it.value = true
+        }
+    }
+
+    private val loading: MutableLiveData<Boolean> by lazy {
+        MutableLiveData<Boolean>().also {
+            it.value = false
+        }
+    }
 
     private val requestErrorMessage: MutableLiveData<String?> by lazy {
         MutableLiveData<String?>().also {
@@ -29,15 +39,18 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
 
     fun queryAlbums(query: String) {
         loading.value = true
+        empty.value = false
         repository.getAlbums(query) { outcome ->
             loading.value = false
             when (outcome) {
                 is Outcome.Success -> {
                     albums.value = outcome.value.results
+                    empty.value = outcome.value.results.isEmpty()
                     requestErrorMessage.value = null
                 }
                 is Outcome.Error -> {
                     albums.value = emptyList()
+                    empty.value = true
                     requestErrorMessage.value = outcome.message
                 }
             }
@@ -54,6 +67,7 @@ class AlbumSearchViewModel(private val repository: AlbumRepository) : ViewModel(
     * completeness I'll add this.
     */
     fun getAlbums() = albums as LiveData<List<Album>>
+    fun isEmpty() = empty as LiveData<Boolean>
     fun isLoading() = loading as LiveData<Boolean>
     fun getRequestErrorMessage() = requestErrorMessage as LiveData<String?>
 }

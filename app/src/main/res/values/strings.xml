@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Album Search</string>
+    <string name="search">Search</string>
+    <string name="currency">Currency:</string>
+    <string name="price">Price:</string>
+    <string name="genre">Genre:</string>
+    <string name="search_hint">artist</string>
+    <string name="no_results">No results</string>
 </resources>

@@ -34,7 +34,7 @@ class AlbumSearchRecyclerViewAdapter(var data: List<Album>, private val onClick:
 
         fun bind(album: Album) {
             this.album = album
-            Picasso.get().load(album.artworkUrl).into(view.albumArtwork)
+            Picasso.get().load(album.artworkUrl).fit().centerCrop().into(view.albumArtwork)
             view.albumName.text = album.collectionName
             view.albumReleaseDate.text = album.releaseDate
                 .toInstant()

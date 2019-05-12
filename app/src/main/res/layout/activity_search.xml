@@ -16,6 +16,19 @@
                                                android:layout_height="match_parent"/>
 
     <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                 android:id="@+id/emptyView"
+                 android:visibility="gone"
+                 tools:visibility="visible"
+                 android:background="@android:color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView android:layout_width="wrap_content"
+                                                     android:text="@string/no_results"
+                                                     android:layout_gravity="center"
+                                                     android:layout_height="wrap_content"/>
+
+    </FrameLayout>
+
+    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
                  android:id="@+id/progressBarContainer"
                  android:visibility="gone"
                  android:background="@android:color/white">
