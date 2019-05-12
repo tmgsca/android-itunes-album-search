@@ -8,16 +8,19 @@ import com.tmagalhaes.albumsearch.album.viewmodel.SearchViewModel
 import com.tmagalhaes.albumsearch.R
 import com.tmagalhaes.albumsearch.album.model.Album
 import kotlinx.android.synthetic.main.activity_search.*
+import org.jetbrains.anko.alert
 import org.jetbrains.anko.design.snackbar
+import org.koin.android.ext.android.inject
 
 class SearchActivity : AppCompatActivity() {
 
-    private val viewModel = SearchViewModel()
+    private val viewModel : SearchViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         setupBindings()
+        viewModel.queryAlbums("Blind Guardian")
     }
 
     private fun setupBindings() {
@@ -34,6 +37,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun updateRecyclerView(albums: List<Album>) {
+        alert(albums.map { it.artistName }.firstOrNull() ?: "No Results") {  }.show()
         //TODO: Update recycler
     }
 

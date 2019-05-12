@@ -2,13 +2,12 @@ package com.tmagalhaes.albumsearch.album.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.tmagalhaes.albumsearch.album.model.Album
 import com.tmagalhaes.albumsearch.common.model.Outcome
 import com.tmagalhaes.albumsearch.album.repository.AlbumRepository
 
-class SearchViewModel {
-
-    private lateinit var repository: AlbumRepository //TODO: Inject
+class SearchViewModel(private val repository: AlbumRepository) : ViewModel() {
 
     // Properties
 

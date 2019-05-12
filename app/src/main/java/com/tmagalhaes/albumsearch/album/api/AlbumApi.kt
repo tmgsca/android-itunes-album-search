@@ -7,6 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface AlbumApi {
-    @GET("search?media=music&entity=album&attribute=artistTerm")
+    @GET("/search?media=music&entity=album&attribute=artistTerm")
     fun searchAlbums(@Query("term") term: String): Call<SearchResult<Album>>
 }

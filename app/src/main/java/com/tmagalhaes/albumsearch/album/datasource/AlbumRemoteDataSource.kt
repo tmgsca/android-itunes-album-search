@@ -1,17 +1,14 @@
 package com.tmagalhaes.albumsearch.album.datasource
 
-import com.tmagalhaes.albumsearch.album.model.Album
 import com.tmagalhaes.albumsearch.album.api.AlbumApi
+import com.tmagalhaes.albumsearch.album.model.Album
 import com.tmagalhaes.albumsearch.common.model.Outcome
-
 import com.tmagalhaes.albumsearch.common.model.SearchResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AlbumRemoteDataSource : AlbumDataSource {
-
-    private lateinit var api: AlbumApi //TODO: Inject
+class AlbumRemoteDataSource(private val api: AlbumApi) : AlbumDataSource {
 
     // We add this reference in order to cancel ongoing requests in case another one is sent before it finishes
     private var currentSearchAlbumsCall: Call<SearchResult<Album>>? = null

@@ -33,9 +33,12 @@ dependencies {
     // Libs
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.5.0"
+    implementation 'com.squareup.moshi:moshi-adapters:1.8.0'
     implementation "org.jetbrains.anko:anko:0.10.8"
     implementation "org.jetbrains.anko:anko-design:0.10.8"
+    implementation "org.koin:koin-androidx-scope:2.0.0-GA"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.0-GA"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
